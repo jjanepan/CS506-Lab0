@@ -14,8 +14,8 @@ def test_dot_product():
     
 def test_cosine_similarity():
     ### YOUR CODE HERE
-    vector1 = np.array([1, 0, 0])
-    vector2 = np.array([0, 1, 0])
+    vector1 = np.array([1, 2, 3])
+    vector2 = np.array([4, 5, 6])
     
     result = cosine_similarity(vector1, vector2)
     
@@ -24,11 +24,15 @@ def test_cosine_similarity():
     assert np.isclose(result, expected_result), f"Expected {expected_result}, but got {result}"
 
 def test_nearest_neighbor():
-    points = np.array([[1, 2], [3, 4], [5, 6]])
-    target = np.array([2, 3])
+    target_vector = np.array([1, 2, 3])  # Use parentheses instead of square brackets
+    vectors = [
+        np.array([4, 5, 6]),  # Add commas between elements
+        np.array([1, 0, 0]),
+        np.array([0, 1, 0])
+    ]
     
-    result = nearest_neighbor(points, target)
+    result = nearest_neighbor(target_vector, vectors)
     
-    expected_index = 0
+    expected_index = 0  # The index of the vector [4, 5, 6], which is closest to [1, 2, 3] in terms of cosine similarity
     
     assert result == expected_index, f"Expected index {expected_index}, but got {result}"
